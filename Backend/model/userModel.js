@@ -7,13 +7,13 @@ const {Schema,model} = mongoose;
 const userSchema = new Schema({
     name:{type:String,required:true},
     email:{type:String,unique:true,required:true},
-    password:{type:String,required:true,minlength:[3,'minimum length is 3 characters']},
+    password:{type:String,required:true,minlength:[3,'minimum length is 3 characters'],select:false},
     socketId:{type:String} 
 })
  
 
 userSchema.methods.generateToken = function(){
-    const token = jwt.sign({_id:this._id},process.env.SECRET_KEY);
+    const token = jwt.sign({_id:this._id},process.env.SECRET_KEY,{expiresIn:30});
     return token;
 }
 
