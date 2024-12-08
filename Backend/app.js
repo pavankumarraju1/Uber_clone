@@ -5,9 +5,10 @@ import cookieParser from 'cookie-parser';
 
 import connection from './db/db.js';
 import userRouter from './routes/userRoutes.js';
+import captainRouter from './routes/captainRoutes.js';
 
 
-const app = express();  
+const app = express();   
 
 connection(); 
 
@@ -18,7 +19,7 @@ app.use(cookieParser())
 
 
 app.use('/user',userRouter);
-   
+app.use('/captain',captainRouter);   
 
 
 app.listen(process.env.PORT_NUMBER,()=>{

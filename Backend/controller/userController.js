@@ -11,6 +11,11 @@ const registerController = async(req,res,next)=>{
     }
     const {name,email,password} = req.body;
 
+    const isUserExists = await userModel.findOne({email});
+    if(isUserExists){
+        return res.status(400).json({message: "User already exists"});
+    }
+
     const hashedPassword = await userModel.hashPassword(password);
 
     const user = await createUser({
@@ -62,7 +67,7 @@ const logoutController = async(req,res,next)=>{
             return res.status(400).json({ message: "No token found to log out" });
         }
         const bToken = await blacklistModel.create({ token });
-        console.log(bToken);
+        //console.log(bToken);
         res.clearCookie('token');
         res.status(200).json({ message: "Logged out successfully" });
     } catch (error) {
