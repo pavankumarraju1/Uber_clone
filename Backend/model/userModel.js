@@ -5,7 +5,16 @@ import jwt from 'jsonwebtoken';
 const {Schema,model} = mongoose;
 
 const userSchema = new Schema({
-    name:{type:String,required:true},
+    fullName:{
+        firstName:{
+            type:String,
+            required:true,
+            minlength:[3,'name should be atleast 3 characters']
+        },
+        lastName:{
+            type:String,
+        }
+    },
     email:{type:String,unique:true,required:true},
     password:{type:String,required:true,minlength:[3,'minimum length is 3 characters'],select:false},
     socketId:{type:String} 
