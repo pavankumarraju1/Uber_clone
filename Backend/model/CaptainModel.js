@@ -74,4 +74,4 @@ captainSchema.methods.comparePassword=async function(password){
 
 const captainModel = model('captainData',captainSchema);
 
-export  default captainModel;
+export  default captainModel; 

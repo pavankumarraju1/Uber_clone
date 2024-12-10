@@ -57,11 +57,11 @@ const loginController = async (req,res,next)=>{
 
 
 const getUserProfile = async(req,res,next)=>{
-    res.status(200).json(req.user);    
-}
+    res.status(200).json(req.user);     
+} 
 
 const logoutController = async(req,res,next)=>{
-    try {
+    try { 
         const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
 
         if (!token) {

@@ -30,6 +30,7 @@ const UserSignup = () => {
         const res = await axios.post(`${import.meta.env.VITE_base_url}/user/register`,newData);
         if(res.status == 201){
             setData(res.user);
+            localStorage.setItem('token', res.token);
             nav('/home');
         }
         setEmail('')
