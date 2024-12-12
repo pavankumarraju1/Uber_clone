@@ -21,9 +21,9 @@ const UserLogin = () => {
         }
         const res = await axios.post(`${import.meta.env.VITE_base_url}/user/login`,newData);
         if(res.status === 200){
-            const data = res.data
-            setData(data.user);
-            localStorage.setItem('token',data.token);
+            const Resdata = res.data
+            setData(Resdata.user);
+            localStorage.setItem('token',Resdata.token);
             nav('/home');
         }
         setEmail('')

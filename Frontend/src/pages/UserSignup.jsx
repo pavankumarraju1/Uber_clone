@@ -26,11 +26,11 @@ const UserSignup = () => {
             password
         }
         //console.log(newData)
-        const {data,setData} = contextData;
+        const {rdata,setData} = contextData;
         const res = await axios.post(`${import.meta.env.VITE_base_url}/user/register`,newData);
         if(res.status == 201){
-            setData(res.user);
-            localStorage.setItem('token', res.token);
+            setData(res.data.user);
+            localStorage.setItem('token', res.data.token);
             nav('/home');
         }
         setEmail('')

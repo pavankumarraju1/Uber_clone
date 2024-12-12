@@ -25,7 +25,7 @@ const registerController = async (req,res,next)=>{
         lastName:fullName.lastName,
         email,
         password:hashedPassword,
-        color:vehicle.color,
+        colour:vehicle.colour,
         capacity:vehicle.capacity,
         vehicleType:vehicle.vehicleType,
         plateNumber:vehicle.plateNumber

@@ -13,7 +13,7 @@ captainRouter.post('/register',[
     body('fullName.firstName').isString().withMessage('must be a string'),
     body('email').isEmail().withMessage('must follow email format'),
     body('password').isLength({min:3}).withMessage('min length must be 3'),
-    body('vehicle.color').isLength({ min: 3 }).withMessage('min length must be 3'),
+    body('vehicle.colour').isLength({ min: 3 }).withMessage('min length must be 3'),
     body('vehicle.plateNumber').isLength({ min: 3 }).withMessage('min length must be 3'),
     body('vehicle.capacity').isInt({ min: 1 }).withMessage('capacity must be atleast 1'),
     body('vehicle.vehicleType').isIn(['car','bike','auto']).withMessage('invalid vehicle type')
