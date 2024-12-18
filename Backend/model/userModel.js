@@ -22,7 +22,7 @@ const userSchema = new Schema({
  
 
 userSchema.methods.generateToken = function(){
-    const token = jwt.sign({_id:this._id},process.env.SECRET_KEY,{expiresIn:30});
+    const token = jwt.sign({_id:this._id},process.env.SECRET_KEY,{expiresIn:'24h'});
     return token;
 }
 

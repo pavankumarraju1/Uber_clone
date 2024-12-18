@@ -6,7 +6,7 @@ const blackListTokenSchema = new Schema({
     createdAt:{
         type:Date,
         default:Date.now,
-        expires:30
+        expiresIn:'24h'
     }
 });
 
