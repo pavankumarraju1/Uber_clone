@@ -10,9 +10,9 @@ const UserLogout = () => {
     useEffect(() => {
         const fun = async()=>{
             try {
-                const res = await axios.get(`${import.meta.env.VITE_base_url}/user/logout`, {
+                await axios.get(`${import.meta.env.VITE_base_url}/user/logout`, {
                     headers: {
-                        'Authorization': `Bearer ${token}`,
+                        Authorization: `Bearer ${token}`,
                     },
                 }).then((res)=>{
                     if (res.status === 200) {
@@ -22,7 +22,7 @@ const UserLogout = () => {
                 })
 
             } catch (error) {
-                console.error('Error during logout:', error);
+                console.error('Error during logout:'+ error);
             }
         }
         fun()

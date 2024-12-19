@@ -9,6 +9,7 @@ import VehiclesListPanel from '../components/VehiclesListPanel'
 import ConfirmedVehiclePanel from '../components/ConfirmedVehiclePanel'
 import WaitingForDriverAcceptRidePanel from '../components/WaitingForDriverAcceptRidePanel'
 import ShowingDriverDetailsAfterAccept from '../components/ShowingDriverDetailsAfterAccept'
+import { Link } from 'react-router-dom'
 
 
 const Home = () => {
@@ -123,16 +124,20 @@ const Home = () => {
   return (
     <div className='h-screen relative'>
       <img className='w-16 absolute left-10 top-10' src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="" />
-
+        
+    
       {/* image  */}
       <div className='h-screen w-full'>
         {/* image for temporary use  */}
         <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" />
+        
       </div>
 
       {/* picup destination and location showing panel */}
       <div className='absolute top-0 h-screen w-full flex flex-col justify-end overflow-hidden'>
-
+        <Link to='/user/logout' className='absolute top-6 right-5 h-10 w-10 bg-white flex items-center justify-center rounded-full'>
+          <i className="text-lg font-medium ri-logout-box-r-line"></i>
+        </Link>
         {/* picup and destination panel div */}
         <div className='h-[30%] p-6 bg-white relative'>
           <h5 className='absolute right-5 top-4 opacity-0'
@@ -177,14 +182,14 @@ const Home = () => {
       {/* after clicking a vehicle showing vehicle details and address info */}
       <div className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-5 pt-12'
         ref={confirmVehiclePanelref}>
-        <ConfirmedVehiclePanel setconfirmVehiclePanel={setconfirmVehiclePanel}       setWaitingForDriverAccept={setWaitingForDriverAccept}
-        setVehicalpanel={setVehicalpanel}
+        <ConfirmedVehiclePanel setconfirmVehiclePanel={setconfirmVehiclePanel} setWaitingForDriverAccept={setWaitingForDriverAccept}
+          setVehicalpanel={setVehicalpanel}
         />
       </div>
 
       {/* After confirming vehicle looking for driver */}
       <div ref={WaitingForDriverAcceptref} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-6 pt-12'>
-        <WaitingForDriverAcceptRidePanel setWaitingForDriverAccept={setWaitingForDriverAccept} 
+        <WaitingForDriverAcceptRidePanel setWaitingForDriverAccept={setWaitingForDriverAccept}
           setShowingDetailsAfterDriverAccept={setShowingDetailsAfterDriverAccept}
         />
       </div>
@@ -192,7 +197,7 @@ const Home = () => {
 
       <div ref={showingDetailsAfterDriverAcceptref} className='fixed w-full translate-y-full z-10 bottom-0  bg-white px-3 py-6 pt-12'>
         <ShowingDriverDetailsAfterAccept setShowingDetailsAfterDriverAccept={setShowingDetailsAfterDriverAccept}
-        setWaitingForDriverAccept={setWaitingForDriverAccept}
+          setWaitingForDriverAccept={setWaitingForDriverAccept}
         />
       </div>
     </div>
